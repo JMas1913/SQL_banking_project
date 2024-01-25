@@ -77,4 +77,28 @@ FROM
 ORDER BY 
     "Service Charge Rate" ASC;
 
+# Return all loans from the country of Honduras where the service charge rate is larger than 1:
+SELECT 
+   * 
+FROM 
+   banking_data 
+WHERE 
+   country = 'Honduras' AND "Service Charge Rate" > 1;
+
+# Return the loans that have a project name of 'COTTON' or the name of 'RIVER':
+SELECT 
+   * 
+FROM 
+   banking_data 
+WHERE 
+   "Project Name" = 'COTTON' OR "Project Name" = 'RIVER';
+
+# Return all the loans that are not of the project name 'COTTON':
+SELECT 
+   * 
+FROM 
+   banking_data 
+WHERE 
+   NOT "Project Name" = 'COTTON';
+
 
