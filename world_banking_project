@@ -1,10 +1,36 @@
+# Query 1:
 SELECT
     *
 FROM
     banking_data;
 
+# Query 2:
 SELECT 
     borrower, 
     "Due to IDA" 
 FROM 
-    banking_data; 
+    banking_data
+LIMIT
+    5; 
+
+# Query 3:
+SELECT 
+    region, 
+    "Due to IDA" AS due 
+FROM 
+    banking_data 
+LIMIT 20;
+
+# Query 4:
+SELECT 
+    *  
+FROM 
+    banking_data 
+WHERE 
+    country = 'Nicaragua';
+
+# Query 5:
+SELECT 
+    COUNT(*)  
+FROM 
+    banking_data;
