@@ -1,10 +1,10 @@
-# Query 1:
+# Write a query that will return every column & every row from the dataset:
 SELECT
     *
 FROM
     banking_data;
 
-# Query 2:
+# Return the first 5 rows of the table (only the borrower & due to IDA column):
 SELECT 
     borrower, 
     "Due to IDA" 
@@ -13,7 +13,7 @@ FROM
 LIMIT
     5; 
 
-# Query 3:
+# Refer to that column as "due" instead of "Due to IDA". Select the region & due column & limit the response to the first 20 rows:
 SELECT 
     region, 
     "Due to IDA" AS due 
@@ -21,7 +21,7 @@ FROM
     banking_data 
 LIMIT 20;
 
-# Query 4:
+# Return all transactions where the country is equal to Nicaragua:
 SELECT 
     *  
 FROM 
@@ -29,8 +29,52 @@ FROM
 WHERE 
     country = 'Nicaragua';
 
-# Query 5:
+# How many rows are in this banking table?:
 SELECT 
     COUNT(*)  
 FROM 
     banking_data;
+
+# How many rows in the table are from the country Nicaragua?:
+SELECT 
+    COUNT("Due to IDA") 
+FROM 
+    banking_data 
+WHERE country = 'Nicaragua';
+
+# Return the number of transactions per country:
+SELECT 
+    country, 
+    COUNT(*) 
+FROM 
+    banking_data 
+GROUP BY 
+    country;
+
+# Find the max owed to the IDA:
+SELECT 
+    MAX("Due to IDA") 
+FROM 
+    banking_data;
+
+# How much is owed to the IDA?:
+SELECT 
+    SUM("Due to IDA") 
+FROM 
+    banking_data;
+
+# What is the average service charge rate for a loan?:
+SELECT
+    AVG("Service Charge Rate")
+FROM
+    banking_data;
+
+# Find out what transactions have the lowest service charge rate. Return all columns. Place the smallest rates at the top:
+SELECT 
+    * 
+FROM 
+    banking_data 
+ORDER BY 
+    "Service Charge Rate" ASC;
+
+
