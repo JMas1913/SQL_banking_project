@@ -1,0 +1,10 @@
+SELECT
+    *
+FROM
+    banking_data;
+
+SELECT 
+    borrower, 
+    "Due to IDA" 
+FROM 
+    banking_data; 
